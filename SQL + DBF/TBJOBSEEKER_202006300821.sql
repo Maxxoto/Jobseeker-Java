@@ -1,0 +1,16 @@
+INSERT INTO HAMLET.TBJOBSEEKER (ID_JOBSEEKER,ID_AUTH,FULLNAME,ADDRESS,PHONENUMBER) VALUES 
+(2,2,'Rina Ningsih','jl ambengan','0314421123')
+,(1,2,'SULASTRi123','JL SULASTRI','088282811123')
+,(10,10,'Sasa Charlie','Jl Suhat','0812332321')
+,(11,11,'Sisi Sukat','Jl Sato','0812323232')
+,(12,12,'Soso Connor','Jl Soto','082322113')
+,(13,13,'Sese Lom','Jl Cacar','0812434452')
+,(14,14,'Susu Thang Ching','Jl Pecinan','0812323231')
+,(20,10,'Sasa Charlie','Jl Suhat','0812332321')
+,(21,11,'Sisi Sukat','Jl Sato','0812323232')
+,(22,12,'Soso Connor','Jl Soto','082322113')
+;
+INSERT INTO HAMLET.TBJOBSEEKER (ID_JOBSEEKER,ID_AUTH,FULLNAME,ADDRESS,PHONENUMBER) VALUES 
+(23,13,'Sese Lom','Jl Cacar','0812434452')
+,(24,14,'Susu Thang Ching','Jl Pecinan','0812323231')
+;
