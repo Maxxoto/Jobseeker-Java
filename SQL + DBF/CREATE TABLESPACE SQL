@@ -1,0 +1,1 @@
+CREATE TABLESPACE dani_06931 DATAFILE '/BasisData/Modul1/dani_06931.dbf' SIZE 20M ;
