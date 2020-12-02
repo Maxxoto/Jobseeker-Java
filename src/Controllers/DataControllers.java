@@ -12,7 +12,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -33,12 +32,11 @@ public class DataControllers {
     
     public ArrayList<Joblist> getLamaranku (Integer id_jobseeker) throws SQLException{
         this.arrJoblist.clear();
-        ResultSet rs = this.Database.GetData("SELECT TBJOBLIST.NPM06931_JOBNAME,TBJOBLIST.JOBSALARY,TBJOBLIST.JOBLOCATION FROM TBJOBJOIN JOIN TBJOBLIST ON TBJOBLIST.ID_JOB = TBJOBJOIN.ID_JOB JOIN TBEMPLOYEER ON TBEMPLOYEER.ID_EMPLOYEER = TBJOBLIST.ID_EMPLOYEER WHERE TBJOBJOIN.ID_JOBSEEKER = "+ id_jobseeker);
-//        ResultSet rs = this.Database.GetData("SELECT ID_JOBJOIN,TBEMPLOYEER.FULLNAME,TBJOBLIST.NPM06931_JOBNAME,TBJOBLIST.JOBSALARY,TBJOBLIST.JOBLOCATION FROM TBJOBJOIN JOIN TBJOBLIST ON TBJOBLIST.ID_JOB = TBJOBJOIN.ID_JOB JOIN TBEMPLOYEER ON TBEMPLOYEER.ID_EMPLOYEER = TBJOBLIST.ID_EMPLOYEER WHERE TBJOBJOIN.ID_JOBSEEKER = "+ id_jobseeker);
+        ResultSet rs = this.Database.GetData("SELECT TBJOBLIST.JOBNAME,TBJOBLIST.JOBSALARY,TBJOBLIST.JOBLOCATION FROM TBJOBJOIN JOIN TBJOBLIST ON TBJOBLIST.ID_JOB = TBJOBJOIN.ID_JOB JOIN TBEMPLOYEER ON TBEMPLOYEER.ID_EMPLOYEER = TBJOBLIST.ID_EMPLOYEER WHERE TBJOBJOIN.ID_JOBSEEKER = "+ id_jobseeker);
         while (rs.next()){
             Joblist listjob = new Joblist();
                         
-            listjob.setJobname(rs.getString("NPM06931_JOBNAME"));
+            listjob.setJobname(rs.getString("JOBNAME"));
             listjob.setJobsalary(rs.getInt("JOBSALARY"));
             listjob.setJoblocation(rs.getString("JOBLOCATION"));
             
@@ -55,7 +53,7 @@ public class DataControllers {
         while (rs.next()){
             Joblist listjob = new Joblist();
                         
-            listjob.setJobname(rs.getString("NPM06931_JOBNAME"));
+            listjob.setJobname(rs.getString("JOBNAME"));
             listjob.setJobsalary(rs.getInt("JOBSALARY"));
             listjob.setJoblocation(rs.getString("JOBLOCATION"));
             
@@ -70,14 +68,14 @@ public class DataControllers {
     public ArrayList<Jobjoin> getJoinJob (String idemployeer) throws SQLException{
         this.arrJobjoin.clear();
         
-        ResultSet rs = this.Database.GetData("SELECT ID_JOBJOIN,TBJOBSEEKER.FULLNAME,TBJOBLIST.NPM06931_JOBNAME FROM TBJOBJOIN JOIN TBJOBSEEKER ON TBJOBSEEKER.ID_JOBSEEKER = TBJOBJOIN.ID_JOBSEEKER JOIN TBJOBLIST ON TBJOBLIST.ID_JOB = TBJOBJOIN.ID_JOB WHERE TBJOBLIST.ID_EMPLOYEER = "+ idemployeer);
+        ResultSet rs = this.Database.GetData("SELECT ID_JOBJOIN,TBJOBSEEKER.FULLNAME,TBJOBLIST.JOBNAME FROM TBJOBJOIN JOIN TBJOBSEEKER ON TBJOBSEEKER.ID_JOBSEEKER = TBJOBJOIN.ID_JOBSEEKER JOIN TBJOBLIST ON TBJOBLIST.ID_JOB = TBJOBJOIN.ID_JOB WHERE TBJOBLIST.ID_EMPLOYEER = "+ idemployeer);
         
         try {
             while (rs.next()){
             Jobjoin listJoin = new Jobjoin();
             listJoin.setId_jobjoin(rs.getInt("ID_JOBJOIN"));
             listJoin.setNameJobseeker(rs.getString("FULLNAME"));
-            listJoin.setNameJob(rs.getString("NPM06931_JOBNAME"));
+            listJoin.setNameJob(rs.getString("JOBNAME"));
                         
             this.arrJobjoin.add(listJoin);
             }
@@ -97,7 +95,7 @@ public class DataControllers {
             Joblist listjob = new Joblist();
             listjob.setId_job(rs.getInt("ID_JOB"));
             listjob.setId_employeer(rs.getInt("ID_EMPLOYEER"));
-            listjob.setJobname(rs.getString("NPM06931_JOBNAME"));
+            listjob.setJobname(rs.getString("JOBNAME"));
             listjob.setJobsalary(rs.getInt("JOBSALARY"));
             listjob.setJoblocation(rs.getString("JOBLOCATION"));
             
